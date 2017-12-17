@@ -1,0 +1,99 @@
+<! https://www.youtube.com/watch?v=LjjujVxI0js&index=13&list=PLw02n0FEB3E3VSHjyYMcFadtQORvl1Ssj >
+
+<html>
+	<head>		
+		{% load static %} <! To link the style sheet style.css >
+		<link rel="stylesheet" href = "{% static 'forum/style.css' %}" type = "text/css">
+		<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css" />
+		<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" 
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+		{% block head %}
+		<title>Base</title>
+		{% endblock %}
+	</head>
+	<body>
+		<style>
+	body,html {
+		font-family: convergence;
+	}
+	
+</style>
+	<style>
+		body {
+    /* The image used */
+    background-image: url("{% static 'forum/back.jpg' %}");
+
+    /* Set a specific height */
+    height: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+	</style>
+		<br>
+		<nav class="navbar navbar-inverse"  style="margin-left: 3%; margin-right: 3%">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" style="color: white" href="/forum/">Tech-Team Forum</a>
+    </div>
+    <ul class="nav navbar-nav">      
+      {% block nav %}
+	  
+	  {% endblock %}
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+		{% if user.is_authenticated %}
+		<li>
+		  <a style="color: white;" href="/forum/profile">
+			  <span class="glyphicon glyphicon-user">
+			  </span> 
+			  Welcome, {{user.get_username}}: Edit profile!
+		  </a>
+		</li>
+		<li>
+		  <a href="/forum/logout/" style="color: white">
+			  <span class="glyphicon glyphicon-share">
+			  </span> 
+			  Logout
+		  </a>
+		</li>
+		
+		{% else %}
+		<li>
+			  <a href="/forum/register" style="color: white">
+				  <span class="glyphicon glyphicon-user">
+				  </span> 
+				  Register
+			  </a>
+		  </li>
+      <li>
+		  <a href="/forum/login" style="color: white">
+			  <span class="glyphicon glyphicon-log-in">
+			  </span> 
+			  Login
+		  </a>
+	  </li>
+	   {% endif %}
+    </ul>
+  </div>
+</nav>
+		{% block body %}
+			<h1>Base</h1>
+		{% endblock %}
+	</body>
+</html>
+<style>
+body{
+	
+
+}
+</style>

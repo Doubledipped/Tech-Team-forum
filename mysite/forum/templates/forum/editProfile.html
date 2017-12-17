@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Profile</title>
+
+{% endblock %}
+
+<!------------------------------------------------------------>
+
+{% block nav %}
+	  <li class="active"><a href="/forum/" style = "color: white;">Home</a></li>
+{% endblock %}
+
+{% block body %}
+
+<div class="breadcrumbs" style = "background-color: rgba(70,130,180, 0.5)">
+			<a href="/forum">Home</a>
+&rsaquo; 	<a href="/forum/profile">Profile</a>
+&rsaquo; 	<a href="/forum/profile/edit">Edit Profile</a>
+</div>
+
+<div class = "container" style = "color: white">
+	<form method = "post">
+		<br>
+		{% csrf_token %}
+	<div style = "width: 500px; ">
+			<div style = "float: left; width: 150px; ">
+				<div style = "height: 30px; padding-top: 5px; color: white;">Username:</div>
+				
+				<div style = "height: 30px;  padding-top: 5px; color: white;">Email:</div>
+				
+				<div style = "height: 30px;  padding-top: 5px; color: white;">Surname:</div>
+				
+				<div style = "height: 30px;  padding-top: 5px; color: white;">First Name:</div>
+			</div>
+			<div style = "float: left; width: 200px; ">
+				<div style = "height: 30px;  ">{{ form.username }}</div>
+				<div style = "height: 30px;  ">{{ form.email }}</div>
+				<div style = "height: 30px; ">{{ form.first_name }}</div>
+				<div style = "height: 30px; ">{{ form.last_name }}</div>
+<br>
+				<a href="/forum/profile/changePassword" style = "color: black; border-bottom: 1px solid black">Change password</a>
+			</div>
+		</div>
+
+		<div style = "float: left; width: 800px; margin-top: 30px;  ">
+			<button type = "submit">Save changes</button>
+		</div>
+	</form>
+	<br>
+</div>
+{% endblock %}

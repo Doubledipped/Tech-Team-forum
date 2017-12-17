@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Profile</title>
+
+{% endblock %}
+
+<!------------------------------------------------------------>
+
+{% block nav %}
+	  <li class="active"><a href="/forum/" style = "color: white;">Home</a></li>
+{% endblock %}
+
+{% block body %}
+
+<div class="breadcrumbs" style = "background-color: rgba(70,130,180, 0.5)">
+			<a href="/forum">Home</a>
+&rsaquo; 	<a href="/forum/add">Profile</a>
+</div>
+
+<div id="content" class="colM">
+	<h2 style = "color: white; text-indent: 30px; text-align: center; ">
+		<B>{{user.first_name}} {{user.last_name}}</B>
+	</h2>
+	<h4 style = "color: white; text-indent: 30px;">Username: {{user.username}}</h4>
+	<h4 style = "color: white; text-indent: 30px;">Email: {{user.email}}</h4>
+<div id="content-main">
+	
+		<ul class="object-tools" style = "padding-top: 10px;">
+	<li>
+		<a href="/forum/profile/edit" class="addlink">
+			Edit Profile
+		</a>
+   </li>
+</ul>
+{% endblock %}

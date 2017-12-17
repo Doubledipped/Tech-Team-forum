@@ -1,0 +1,416 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Forum</title>
+{% endblock %}
+
+<!------------------------------------------------------------>
+
+{% block nav %}
+	  <li class="active"><a href="/forum/" style = "color: white;">Home</a></li>
+{% endblock %}
+
+<!------------------------------------------------------------>
+
+{% block body %}
+
+<!------------------------------------------------------------>
+
+<! COS 110 Header >
+
+<div class="body" style = "background-color: rgba(211,211,211,0.7); padding: 10px;">
+	<div>
+	<p style = "text-align: center; font-size: 120%; padding-top: 10px; font-size: 150%;">
+		<b>COS 110</b>
+	</p>
+	</div>
+</div>
+
+<! End of COS 110 Header >
+
+<!------------------------------------------------------------>
+
+
+
+
+<! Website Header >
+
+<div class="body" style = "background-color: rgb(0,0,0,0.6); ">
+	<h4 style = "text-align: center">
+          <p style = "font-family: convergence; font-size: 140%; color: white; padding-top: 15px;"> 
+			  <a data-toggle="collapse" href="#collapse110Topic1" style="color: white"> 
+				  Websites
+			  </a>
+		  </p>
+	</h4>
+</div>
+
+<! End of Website Header >
+
+<!------------------------------------------------------------>
+
+	<! Website content >
+ 
+<div id="collapse110Topic1" class="panel-collapse collapse">
+	<div class="panel-body" style = "background-color: rgba(255,255,255,0.7); padding-left: 27px; margin-left: 50px; margin-right: 50px">
+		<p style = "padding: 0; font-size: 120%;">
+<b>
+Websites
+
+{% if user.is_authenticated %}
+<ul class="object-tools" style = "padding-top: 10px">
+	<li>
+		<a href="/forum/addWebsitePost" class="addlink">
+			Add Website Post
+		</a>
+   </li>
+</ul>
+{% else %}
+<ul class="object-tools" style = "padding-top: 10px">
+	<li>
+		<a href="/forum/login/" class="addlink">
+			Login to post
+        </a>
+    </li>
+</ul>
+{% endif %}
+</b>
+			</p>
+		
+{% for p in website_posts %}
+<div style = "margin-bottom: 30px; padding-left: 27px; background-color: rgba(0, 0, 0, 0.65); min-height: 150px; color: white; font-size: 110%; border-radius: 20px; padding: 10px;">
+				<div style = "border-bottom: 2px solid white; margin-bottom: 15px; padding-left: 8px; "><span><b>Author: </b></span>{{p.author}}</div>
+	
+				<div style = "text-align: center; margin-bottom: 5px; "><b style = "font-size: 120%; ">Title:</b> {{p.title}} </div>
+				<div style =  "min-height: 150px; border: 2px solid white; border-radius: 20px; padding: 8px; background-color: rgba(255, 255, 255, 0.7); color: black; "> {{p.body}} </div>
+				<div>Date: {{p.date}} </div>
+				
+				
+			</div>
+{% endfor %}
+	</div>
+</div>     
+      
+	<! End of website content >
+
+<!------------------------------------------------------------>
+
+
+
+
+<! Assignment Header >
+	
+<div class="body" style = "background-color: rgb(0,0,0,0.6); ">
+	<h4 style = "text-align: center">
+          <p style = "font-family: convergence; font-size: 140%; color: white; padding-top: 15px;"> 
+			  <a data-toggle="collapse" href="#collapse110Topic2" style="color: white"> 
+				  Assignments
+			  </a>
+		  </p>
+	</h4>
+</div>
+	
+<! End of Assignment Header >
+
+<!------------------------------------------------------------>
+	
+	<! Assignment content >
+
+ <div id="collapse110Topic2" class="panel-collapse collapse">
+        <div class="panel-body" style = "background-color: rgba(255,255,255,0.7); padding-left: 27px; margin-left: 50px; margin-right: 50px">
+		<p style = "font-size: 120%;"><b>Assignment</b></p>
+		{% if user.is_authenticated %}
+        <ul class="object-tools" style = "padding-top: 10px">
+            <li>
+              <a href="/forum/addAssignmentPost" class="addlink">
+                Add Assignment Post
+              </a>
+            </li>
+        </ul>
+      {% else %}
+		<ul class="object-tools" style = "padding-top: 10px">
+            <li>
+              <a href="/forum/login/" class="addlink">
+                Login to post
+              </a>
+            </li>
+        </ul>
+      {% endif %}
+			{% for p in assignment_posts %}
+			<div style = "margin-bottom: 30px; padding-left: 27px; background-color: rgba(0, 0, 0, 0.65); min-height: 150px; color: white; font-size: 110%; border-radius: 20px; padding: 10px;">
+				<div style = "border-bottom: 2px solid white; margin-bottom: 15px; padding-left: 8px; "><span><b>Author: </b></span>{{p.author}}</div>
+	
+				<div style = "text-align: center; margin-bottom: 5px; "><b style = "font-size: 120%; ">Title:</b> {{p.title}} </div>
+				<div style =  "min-height: 150px; border: 2px solid white; border-radius: 20px; padding: 8px; background-color: rgba(255, 255, 255, 0.7); color: black; "> {{p.body}} </div>
+				<div>Date: {{p.date}} </div>
+				
+				
+			</div>
+			{% endfor %}
+        </div>
+      </div>     
+
+	<! End of assignment content > 
+	
+<!------------------------------------------------------------>
+
+<br>
+
+<! COS 122 Header >
+
+<div class="body" style = "background-color: rgba(211,211,211,0.7); padding: 10px;">
+	<div>
+	<p style = "text-align: center; font-size: 120%; padding-top: 10px; font-size: 150%;">
+		<b>COS 122</b>
+	</p>
+	</div>
+</div>
+
+<! End of COS 122 Header >
+
+<!------------------------------------------------------------>
+
+<! How to survive header >
+
+<div class="body" style = "background-color: rgb(0,0,0,0.6); ">
+	<h4 style = "text-align: center">
+          <p style = "font-family: convergence; font-size: 140%; color: white; padding-top: 15px;"> 
+			  <a data-toggle="collapse" href="#collapse122Topic1" style="color: white"> 
+				  How to survive
+			  </a>
+		  </p>
+	</h4>
+</div>
+
+<! End of how to survive header >
+
+<!------------------------------------------------------------>
+
+	<! How to survive content >
+	
+<div id="collapse122Topic1" class="panel-collapse collapse">
+	<div class="panel-body" style = "background-color: rgba(255,255,255,0.7); padding-left: 27px; margin-left: 50px; margin-right: 50px">
+		<p style = "font-size: 120%;"><b>How to survive!</b></p>
+		{% if user.is_authenticated %}
+        <ul class="object-tools" style = "padding-top: 10px;">
+            <li>
+              <a href="/forum/addSurvivingPost" class="addlink">
+                Add surviving Post
+              </a>
+            </li>
+        </ul>
+      {% else %}
+		<ul class="object-tools" style = "padding-top: 10px">
+            <li>
+              <a href="/forum/login/" class="addlink">
+                Login to post
+              </a>
+            </li>
+        </ul>
+      {% endif %}
+			{% for p in surviving_posts %}
+			<div style = "margin-bottom: 30px; padding-left: 27px; background-color: rgba(0, 0, 0, 0.65); min-height: 150px; color: white; font-size: 110%; border-radius: 20px; padding: 10px;">
+				<div style = "border-bottom: 2px solid white; margin-bottom: 15px; padding-left: 8px; "><span><b>Author: </b></span>{{p.author}}</div>
+	
+				<div style = "text-align: center; margin-bottom: 5px; "><b style = "font-size: 120%; ">Title:</b> {{p.title}} </div>
+				<div style =  "min-height: 150px; border: 2px solid white; border-radius: 20px; padding: 8px; background-color: rgba(255, 255, 255, 0.7); color: black; "> {{p.body}} </div>
+				<div>Date: {{p.date}} </div>
+			</div>
+				{% endfor %}
+			</div>
+	</div>
+
+	<! End of How to survive content > 
+	
+<!------------------------------------------------------------>
+
+<! Slides header >
+
+<div class="body" style = "background-color: rgb(0,0,0,0.6); ">
+	<h4 style = "text-align: center">
+          <p style = "font-family: convergence; font-size: 140%; color: white; padding-top: 15px;"> 
+			  <a data-toggle="collapse" href="#collapse122Topic2" style="color: white"> 
+				  Lecture Slides
+			  </a>
+		  </p>
+	</h4>
+</div>
+
+<! End slides header >
+
+	<! lecture slides content >
+
+ <div id="collapse122Topic2" class="panel-collapse collapse">
+        <div class="panel-body" style = "background-color: rgba(255,255,255,0.7); padding-left: 27px; margin-left: 50px; margin-right: 50px">
+		<p style = "font-size: 120%;"><b>Lecture Slides</b></p>
+		{% if user.is_authenticated %}
+        <ul class="object-tools" style = "padding-top: 10px">
+            <li>
+              <a href="/forum/addLectureSlidesPost" class="addlink">
+                Add Lecture Slides Post
+              </a>
+            </li>
+        </ul>
+      {% else %}
+		<ul class="object-tools" style = "padding-top: 10px">
+            <li>
+              <a href="/forum/login/" class="addlink">
+                Login to post
+              </a>
+            </li>
+        </ul>
+      {% endif %}
+			{% for p in slides_posts %}
+			<div style = "margin-bottom: 30px; padding-left: 27px; background-color: rgba(0, 0, 0, 0.65); min-height: 150px; color: white; font-size: 110%; border-radius: 20px; padding: 10px;">
+				<div style = "border-bottom: 2px solid white; margin-bottom: 15px; padding-left: 8px; "><span><b>Author: </b></span>{{p.author}}</div>
+	
+				<div style = "text-align: center; margin-bottom: 5px; "><b style = "font-size: 120%; ">Title:</b> {{p.title}} </div>
+				<div style =  "min-height: 150px; border: 2px solid white; border-radius: 20px; padding: 8px; background-color: rgba(255, 255, 255, 0.7); color: black; "> {{p.body}} </div>
+				<div>Date: {{p.date}} </div>
+			</div>
+				{% endfor %}
+			</div>
+</div>
+
+	<! End of lecture slides content > 
+<br>
+
+<!------------------------------------------------------------>
+
+<! COS 151 Header >
+
+<div class="body" style = "background-color: rgba(211,211,211,0.7); padding: 10px;">
+	<div>
+	<p style = "text-align: center; font-size: 120%; padding-top: 10px; font-size: 150%;">
+		<b>COS 151</b>
+	</p>
+	</div>
+</div>
+
+<! End of COS 151 Header >
+
+<!------------------------------------------------------------>
+
+<! Flow charts header >
+
+<div class="body" style = "background-color: rgb(0,0,0,0.6); ">
+	<h4 style = "text-align: center">
+          <p style = "font-family: convergence; font-size: 140%; color: white; padding-top: 15px;"> 
+			  <a data-toggle="collapse" href="#collapse151Topic1" style="color: white"> 
+				  Flow charts
+			  </a>
+		  </p>
+	</h4>
+</div>
+
+<! End Flow charts header >
+
+<!------------------------------------------------------------>
+
+	<! Flow charts content >
+
+ <div id="collapse151Topic1" class="panel-collapse collapse">
+        <div class="panel-body" style = "background-color: rgba(255,255,255,0.7); padding-left: 27px; margin-left: 50px; margin-right: 50px; padding-top: 20px;">
+		<!--<p style = "border-top: 3px solid black; padding: 0; font-size: 150%; background-color: darkorange; padding: 15px; "> -->
+		<p style = "font-size: 120%;"><b>Flow charts</b></p>
+		{% if user.is_authenticated %}
+        <ul class="object-tools" style = "padding-top: 10px;">
+            <li>
+              <a href="/forum/addChartsPost" class="addlink" >
+                Add flow charts Post
+              </a>
+            </li>
+        </ul>
+      {% else %}
+		<ul class="object-tools" style = "padding-top: 10px">
+            <li>
+              <a href="/forum/login/" class="addlink">
+                Login to post
+              </a>
+            </li>
+        </ul>
+      {% endif %}
+			{% for p in charts_posts %}
+			<div style = "padding-left: 27px; background-color: rgba(0, 0, 0, 0.65); min-height: 150px; color: white; font-size: 110%; border-radius: 20px; padding: 10px;">
+				<div>
+				<div style = "border-bottom: 2px solid white; margin-bottom: 15px; padding-left: 8px; "><span ><b>Author:</b></span> {{p.author}}</div>
+				
+				<div style = "text-align: center; margin-bottom: 5px; ">
+					<span style = "font-size: 120%; "><b>Title:</b></span>
+					 {{p.title}}
+				</div>
+				
+				
+				<div style =  "min-height: 150px; border: 2px solid white; border-radius: 20px; padding: 8px; background-color: rgba(255, 255, 255, 0.7); color: black; ">
+					{{p.body}} </div>
+				
+				<div><span><b>Date:</b></span> {{p.date}} </div>
+			</div>
+			</div>
+			<br>
+			{% endfor %}
+        </div>
+      </div>     
+
+	<! End of flow charts content > 
+
+<! binary header >
+
+<div class="body" style = "background-color: rgb(0,0,0,0.6); ">
+	<h4 style = "text-align: center">
+          <p style = "font-family: convergence; font-size: 140%; color: white; padding-top: 15px;"> 
+			  <a data-toggle="collapse" href="#collapse151Topic2" style="color: white"> 
+				  Binary
+			  </a>
+		  </p>
+	</h4>
+</div>
+
+<! End of binary header >
+
+	<! Binary content >
+
+ <div id="collapse151Topic2" class="panel-collapse collapse">
+        <div class="panel-body" style = "background-color: rgba(255,255,255,0.7); padding-left: 27px; margin-left: 50px; margin-right: 50px">
+		<p style = "font-size: 120%;"><b>01100010 01101001 01101110 01100001 01110010 01111001 </b></p>
+		{% if user.is_authenticated %}
+        <ul class="object-tools" style = "padding-top: 10px">
+            <li>
+              <a href="/forum/addBinaryPost" class="addlink">
+                Add binary Post
+              </a>
+            </li>
+        </ul>
+      {% else %}
+		<ul class="object-tools" style = "padding-top: 10px">
+            <li>
+              <a href="/forum/login/" class="addlink">
+                Login to post
+              </a>
+            </li>
+        </ul>
+      {% endif %}
+			{% for p in binary_posts %}
+			<div style = "padding-left: 27px; background-color: rgba(0, 0, 0, 0.65); min-height: 150px; color: white; font-size: 110%; border-radius: 20px; padding: 10px;">
+				
+				<div style = "border-bottom: 2px solid white; margin-bottom: 15px; padding-left: 8px; "><b>Author: {{p.author}}</b></div>
+
+				<div style = "text-align: center; margin-bottom: 5px; "><b style = "font-size: 120%; " >Title: </b>{{p.title}}</div>
+				
+				
+				<br>
+				<div style =  "min-height: 150px; border: 2px solid white; border-radius: 20px; padding: 8px; background-color: rgba(255, 255, 255, 0.7); color: black; ">{{p.body}} </div>
+				<br>
+				Date: {{p.date}} 
+				<br>
+			</div>
+			<br>
+			{% endfor %}
+        </div>
+      </div>     
+
+	<! End of binary content > 
+
+
+<form id="changelist-form" method="post" novalidate><input type='hidden' name='csrfmiddlewaretoken' value='QOe57aNVELh8IFxtPJwYmn7cN8uJftdpaV7IQrrT8plTGHfKhPbJUMRO22By9zCc' />
+{% endblock %}
