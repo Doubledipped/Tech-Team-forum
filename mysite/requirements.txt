@@ -36,7 +36,7 @@ decorator==4.1.2
 dicttoxml==1.7.4
 dissy==9
 distorm3==3.3.4
-Django==1.11.7
+Django==1.11.28
 django-guardian==1.4.9
 django-markdown==0.8.4
 django-markdown-deux==1.0.5
