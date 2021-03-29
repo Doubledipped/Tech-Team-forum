@@ -146,7 +146,7 @@ pycrypto==2.6.1
 pycurl==7.43.0
 pydns==2.3.6
 pyenchant==1.6.11
-Pygments==2.2.0
+Pygments==2.7.4
 pygobject==3.26.1
 pygraphviz==1.4rc1
 pyinotify==0.9.6
