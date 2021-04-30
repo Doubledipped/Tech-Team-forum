@@ -196,7 +196,7 @@ rfcat==1.0
 rfidiot==1.0
 roman==2.0.0
 Routes==2.4.1
-rsa==3.4.2
+rsa==4.7
 scapy==2.3.3
 scgi==1.13
 scipy==0.18.1
