@@ -75,7 +75,7 @@ httpretty==0.8.14
 hyperframe==4.0.1
 icalendar==3.8
 idna==2.6
-impacket==0.9.15
+impacket==0.9.23
 incremental==16.10.1
 ipaddr==2.1.11
 ipaddress==1.0.17
